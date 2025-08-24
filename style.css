@@ -197,3 +197,26 @@ main {
         display: none; /* Hide hamburger button */
     }
 }
+
+/* --- Developer Credit in Footer --- */
+.developer-credit {
+    margin-top: 1rem; /* Adds some space above the credit line */
+    font-size: 0.9rem; /* Makes the font slightly smaller */
+    color: #b0b0b0;    /* A subtle, light grey color */
+}
+
+.developer-credit a {
+    color: inherit; /* The link will have the same grey color */
+    text-decoration: none; /* Removes the underline from the link */
+    transition: color 0.3s ease;
+}
+
+.developer-credit a:hover {
+    color: #ffffff; /* The link text turns white on hover */
+}
+
+.developer-credit .fa-whatsapp {
+    color: #25D366; /* Official WhatsApp green color for the icon */
+    margin-right: 5px; /* Adds a small space between the icon and the number */
+    font-size: 1rem;
+}
