@@ -1,0 +1,714 @@
+:root {
+    /* Color Palette based on the Konkan Railway Pravasi Seva Sangh Logo & Banner */
+
+    /* --- Primary Brand Colors --- */
+    --brand-blue: #0D47A1;     /* Deep, trustworthy blue from the logo's outer circle and banner text */
+    --brand-red: #D32F2F;      /* Strong red from the logo's ribbon, perfect for calls to action */
+    --brand-saffron: #F57C00;  /* Vibrant saffron/orange from the banner's gradient */
+    --brand-yellow: #FFC107;   /* Bright yellow from the banner's gradient for highlights */
+
+    /* --- Functional Colors --- */
+    --primary-bg: #ffffff;     /* White for the main page background, ensures content is readable */
+    --secondary-bg: #f4f6f8;   /* A very light, cool gray for separating content sections */
+    
+    --primary-text: #212121;   /* A very dark gray (almost black) for body text, high contrast */
+    --secondary-text: #ffffff; /* White text for use on dark backgrounds (like buttons or footers) */
+
+    --accent-color: var(--brand-red);  /* Use the brand's red for primary buttons (e.g., "Join Us", "Submit Grievance") */
+    --link-color: var(--brand-blue);   /* Use the main brand blue for all hyperlinks */
+    
+    --highlight-color: var(--brand-yellow); /* Use the yellow for highlights or notification bars */
+    --border-color: #e0e0e0;            /* A neutral light gray for borders and dividers */
+
+    /* --- Hover & Interaction States --- */
+    --hover-bg: #B71C1C;       /* A darker red for button hover effects */
+    --hover-link: #002D62;     /* A darker, more solid blue for link hover effects */
+}
+
+/* Global Styles */
+body {   
+  font-family: 'Tiro Devanagari Marathi', serif;
+  color: var(--primary-text);
+  margin: 0;
+  padding: 0;
+  background-color: var(--primary-bg);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 5px 10px;
+}
+
+/* Navbar Styles */
+.navbar {
+  background-color: var(--primary-bg); /* White background */
+  color: var(--primary-text); /* Dark Gray text */
+  padding: 10px 10px;
+  box-sizing: border-box;
+  height: 60px; /* Set height of the navbar */
+  align-items: center; /* Center items vertically within the navbar */
+  position: fixed; /* Fix the navbar at the top */
+  width: 100%; /* Ensure the navbar spans the full width */
+  top: 0; /* Position at the top */
+  left: 0; /* Position at the left edge */
+  z-index: 1000; /* Ensure it stays above other content */
+}
+
+.navbar .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center; /* Ensure vertical alignment of items */
+  height: 100%; /* Full height of the navbar */
+}
+
+.logo-image{
+  height: 30px; 
+  width: auto; 
+} 
+
+.navbar .logo {
+  display: flex;
+  align-items: center; /* Center the logo vertically */
+}
+
+.navbar .nav-links a {
+  color: var(--link-color); /* Muted Purple for links */
+  margin-left: 20px;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.navbar .nav-links a:hover {
+  color: var(--accent-color); /* Vivid Red for hover effect */
+}
+
+#nav-toggle {
+  display: none;
+}
+
+.mobile-menu.hidden {
+  display: none;
+}
+
+.toggle-btn {
+  background-color: var(--accent-color); /* Vivid Red for button background */
+  border: none; /* Remove default button border */
+  padding: 8px; /* Adjust padding to fit within the navbar */
+  border-radius: 5px; /* Rounded corners */
+  cursor: pointer; /* Pointer cursor on hover */
+  transition: background-color 0.3s ease; /* Smooth transition for background color */
+}
+
+.toggle-btn i {
+  color: var(--primary-bg); /* White color for the icon */
+  font-size: 24px; /* Adjust icon size to fit the navbar */
+  transition: transform 0.3s ease; /* Smooth transition for icon transform */
+}
+
+.toggle-btn:hover {
+  background-color: var(--hover-bg); /* Darker red on hover */
+}
+
+.toggle-btn:active i {
+  transform: rotate(90deg); /* Rotate the icon when the button is active (clicked) */
+}
+
+.toggle-btn:focus {
+  outline: none; /* Remove default focus outline */
+  box-shadow: 0 0 5px var(--highlight-color); /* Add custom focus outline (Soft Yellow) */
+}
+
+@media (max-width: 768px) {
+  .navbar .nav-links {
+    display: none;
+  }
+
+  #nav-toggle {
+    display: block;
+    font-size: 24px; /* Adjust font size for mobile */
+    color: var(--primary-bg); /* White color for toggle icon */
+    cursor: pointer;
+  }
+
+  .mobile-menu {
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(138, 0, 0, 0.667); /* Background remains as-is */
+    position: absolute;
+    top: 60px; /* Position below the fixed navbar */
+    right: 0;
+    width: 100%;
+    text-align: center;
+    z-index: 1000;
+  }
+
+  .mobile-menu a {
+    padding: 10px;
+    border-top: 1px solid var(--border-color); /* Light gray for borders */
+    color: var(--primary-bg); /* White for mobile menu links */
+    background-color: transparent;
+  }
+
+  .mobile-menu a:hover ,.mobile-menu a:focus {
+    background-color: rgba(255, 255, 0, 0.318); /* Light yellow background on hover */
+  }
+  
+  .mobile-menu.hidden {
+    display: none;
+  }
+}
+
+.no-scroll {
+  overflow: hidden;
+}
+
+
+/* Hero Section Styles */
+.hero-section {
+  background-image: url('images/ban1.jpg');
+  background-size: cover;
+  background-position: center;
+  height: 60vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  text-align: center;
+  color: var(--primary-bg); /* White text */
+}
+
+.hero-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7); /* Dark overlay */
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+}
+
+.hero-content h1 {
+  font-size: 2.25rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  color: var(--highlight-color); /* Soft Yellow for headline */
+}
+
+@media (min-width: 768px) {
+  .hero-content h1 {
+    font-size: 4.75rem;
+  }
+}
+
+.hero-content h2 {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  color: var(--accent-color); /* Vivid Red for subheadline */
+}
+
+@media (min-width: 768px) {
+  .hero-content h2 {
+    font-size: 1.5rem;
+  }
+}
+
+.hero-button {
+  background-color: var(--link-color); /* Muted Purple for button */
+  color: var(--primary-bg); /* White text */
+  padding: 10px 20px;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+  margin-right: 10px;
+}
+
+.hero-button:hover {
+  background-color: var(--hover-bg); /* Darker Red on hover */
+}
+
+/* About Section Styles */
+.about-section {
+  background-color: var(--secondary-bg); /* Light Gray background */
+  padding: 60px 0;
+  color: var(--primary-text); /* Dark Gray text */
+}
+
+.about-section h2 {
+  font-size: 32px;
+  margin-bottom: 20px;
+  text-align: center;
+  color: var(--link-color); /* Muted Purple for heading */
+}
+
+.about-section p {
+  font-size: 18px;
+  line-height: 1.6;
+  text-align: justify;
+}
+
+
+@media (max-width: 600px) {
+  .about-section h2 {
+    font-size: 1.25em;
+  }
+
+  .about-section p {
+    font-size: 0.9em;
+  }
+}
+
+.img-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0; /* Adds spacing above and below the image */
+}
+
+.img-div img {
+  max-width: 100%; /* Ensures the image is responsive */
+  height: auto; /* Maintains aspect ratio */
+  border-radius: 10px; /* Optional: Adds rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Adds a subtle shadow */
+}
+
+@media (max-width: 600px) {
+  .img-div {
+    margin: 15px 0; /* Adjusts margin for smaller screens */
+  }
+}
+
+.banner-logo {
+  width: 90%; 
+  max-width: 800px; 
+  margin: 40px auto; 
+  border-radius: 8px; 
+  overflow: hidden; 
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); 
+}
+
+.banner-logo img {
+  display: block;
+  width: 100%;    
+  height: 100%;   
+
+  object-fit: contain; 
+}
+
+/* Email Section Styles */
+.email-section {
+  background-color: var(--primary-bg); /* White background */
+  color: var(--primary-text); /* Dark Gray text */
+  padding: 60px 0;
+}
+
+.responsive-container {
+  max-width: 80%;
+  margin: 20px auto;
+  padding: 15px;
+  background-color: var(--secondary-bg); 
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.logo img {
+  max-width: 100px;
+  height: auto;
+}
+
+.email-section h2 {
+  font-size: 32px;
+  margin-bottom: 20px;
+  text-align: center;
+  color: var(--link-color); /* Muted Purple for heading */
+}
+
+.email-section p {
+  font-size: 18px;
+  line-height: 1.6;
+  text-align: justify;
+}
+
+.email-button { 
+  background-color: var(--link-color); /* Muted Purple for button */
+  color: var(--primary-bg); /* White text */
+  margin: 20px auto 0 auto;  /* Center the button */
+  padding: 10px 20px;
+  font-weight: bold;
+  text-decoration: none;
+  width: fit-content;  /* Adjust width to content */
+  border-radius: 5px;
+  transition: background-color 0.3s;
+  display: block;  /* Ensures button takes up block space and centers properly */
+}
+
+.email-button:hover, .membership-button:hover {
+  background-color: var(--hover-bg); /* Darker red for hover effect */
+}
+
+
+@media (max-width: 600px) {
+  .email-section h2 {
+    font-size: 1.25em;
+  }
+
+  .email-section p {
+    font-size: 0.9em;
+  }
+
+  .email-button {
+    padding: 8px 16px;
+    font-size: 0.9em;
+  }
+}
+
+/* Representatives Section Styles */
+.representatives-section {
+  background-color: var(--secondary-bg); /* Light Gray background */
+  padding: 60px 0;
+  margin-top: 2%;
+}
+
+.representatives-section h2 {
+  font-size: 32px;
+  margin-bottom: 40px;
+  text-align: center;
+  color: var(--link-color); /* Muted Purple for heading */
+}
+
+/* Make the grid horizontally scrollable */
+.representative-grid {
+  display: flex; /* Use flexbox for horizontal layout */
+  overflow-x: auto; /* Enable horizontal scrolling */
+  gap: 20px; /* Space between cards */
+  padding-bottom: 20px; /* Add padding at the bottom */
+  scroll-snap-type: x mandatory; /* Smooth snap scrolling */
+  -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+}
+
+.representative-card {
+  background-color: var(--primary-bg); /* White background for cards */
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  flex: 0 0 auto; /* Prevent the card from shrinking or growing */
+  width: 250px; /* Set a fixed width for each card */
+  scroll-snap-align: start; /* Align each card at the start of the scroll container */
+}
+
+.representative-card h3 {
+  font-size: 20px;
+  margin-bottom: 10px;
+  color: var(--link-color); /* Muted Purple for card titles */
+}
+.representative-card p {
+  font-size: 14px;
+  margin-bottom: 8px;
+  text-align: center;
+  color: var(--primary-text); 
+}
+
+.representative-image {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin-bottom: 15px;
+  object-fit: cover;
+}
+/* Custom Scrollbar Styles */
+.representative-grid::-webkit-scrollbar {
+  height: 8px; /* Adjust scrollbar height for horizontal scrolling */
+}
+
+.representative-grid::-webkit-scrollbar-track {
+  background-color: var(--secondary-bg); /* Match the background color of the section */
+}
+
+.representative-grid::-webkit-scrollbar-thumb {
+  background-color: var(--border-color); /* Light Gray for scrollbar thumb */
+  border-radius: 10px; /* Round the scrollbar thumb */
+  border: 2px solid var(--secondary-bg); /* Add a border to match the background */
+}
+
+.representative-grid::-webkit-scrollbar-thumb:hover {
+  background-color: var(--hover-link); /* Darken the scrollbar thumb on hover */
+}
+
+/* News Section Styles */
+.news-section {
+  background-color: var(--secondary-bg);
+  padding: 60px 0;
+  margin-top: 2%;
+}
+
+.news-section h2 {
+  font-size: 32px;
+  margin-bottom: 40px;
+  text-align: center;
+  color: var(--link-color); /* Muted Purple for heading */
+}
+
+.news-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 20px;
+  max-height: 500px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 10px;
+}
+
+/* Custom Scrollbar Styles for News Grid */
+.news-grid::-webkit-scrollbar {
+  width: 8px;
+}
+
+.news-grid::-webkit-scrollbar-track {
+  background-color: var(--secondary-bg); /* Light Gray for scrollbar track */
+}
+
+.news-grid::-webkit-scrollbar-thumb {
+  background-color: var(--border-color); /* Light Gray for scrollbar thumb */
+  border-radius: 10px;
+  border: 2px solid var(--highlight-color); /* Match section background */
+}
+
+.news-grid::-webkit-scrollbar-thumb:hover {
+  background-color: var(--hover-link); /* Darker purple on hover */
+}
+
+.news-image {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  object-fit: cover;
+  display: block;
+}
+
+/* Placeholder Styles */
+.news-image[src*="placeholder.jpg"] {
+  background-color: var(--secondary-bg); /* Light Gray for placeholders */
+  text-align: center;
+  line-height: 150px;
+  color: var(--primary-text); /* Dark Gray for placeholder text */
+}
+
+/* Voice Section Styles */
+.voice-section {
+  background-color: var(--secondary-bg); /* White background */
+  padding: 60px 0;
+  margin-top: 2%;
+}
+
+.voice-section h2 {
+  font-size: 32px;
+  margin-bottom: 40px;
+  text-align: center;
+  color: var(--link-color); /* Muted Purple for heading */
+}
+
+.voice-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.voice-card {
+  background-color: var(--highlight-color); /* Soft Yellow for cards */
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.voice-card p {
+  font-size: 18px;
+  line-height: 1.6;
+  color: #333; /* Dark Gray for text */
+}
+
+.voice-card h4 {
+  font-size: 20px;
+  margin-top: 10px;
+  color: var(--link-color); /* Muted Purple for headings */
+}
+
+/* Contact Section Styles */
+.contact-section {
+  background-color: var(--secondary-bg); /* Light Gray background */
+  padding: 60px 0;
+  margin-top: 2%;
+}
+
+.contact-section h2 {
+  font-size: 32px;
+  margin-bottom: 20px;
+  text-align: center;
+  color: var(--link-color); /* Muted Purple for heading */
+}
+
+.contact-form {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: white;
+  border: 2px solid var(--link-color); /* Slight dark blue border */
+  border-radius: 8px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); 
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 96%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc; /* Light Gray border */
+  border-radius: 5px;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: none;
+  border-color: var(--link-color); /* Dark blue border on focus */
+}
+
+.contact-form button {
+  background-color: var(--link-color); /* Muted Purple for button */
+  color: white;
+  padding: 10px 20px;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.contact-form button:hover {
+  background-color: var( --hover-bg);
+}
+
+/* Footer Styles */
+.footer-section {
+  background-color: var(--secondary-bg);
+  color: var(--primary-text);
+  padding: 20px 0;
+  text-align: center;
+  margin-top: 2%;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+.footer-content p {
+  margin: 0;
+}
+
+.footer-content a {
+  color: var(--link-color);
+  text-decoration: none;
+}
+
+.footer-content a:hover {
+  text-decoration: underline;
+}
+
+.footer-content .social-links {
+  margin-top: 10px;
+  display: flex; /* Use flexbox for alignment */
+  justify-content: center; /* Center the items */
+  align-items: center; /* Vertically center the items */
+}
+
+.footer-content .social-links a {
+  margin: 0 10px;
+  color: var(--primary-text);
+  font-size: 20px;
+  transition: color 0.3s, transform 0.3s; /* Add transform to transition */
+}
+
+.footer-content .social-links a:hover {
+  color: var(--accent-color);
+  transform: scale(1.1); /* Slightly scale up the icon on hover */
+}
+
+/* enhancement */
+
+.hero-button,
+.donation-button,
+.membership-button,
+.email-button {
+    transition: background-color 0.3s, transform 0.3s; /* Smooth transition */
+}
+
+.hero-button:hover,
+.donation-button:hover,
+.membership-button:hover,
+.email-button:hover {
+    transform: scale(1.25); /* Slightly scale on hover */
+}
+
+.hero-button:focus,
+.donation-button:focus,
+.membership-button:focus,
+.email-button:focus {
+    outline: 2px solid var(--accent-color); /* Outline on focus */
+}
+
+/* Floating Email Button Styles */
+#floating-email-btn {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 30px;
+    right: 30px;
+    background-color: var(--accent-color); /* Uses your existing red color */
+    color: var(--primary-bg); /* White icon */
+    border-radius: 50%; /* Makes it circular */
+    text-align: center;
+    font-size: 24px;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.25);
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    transition: transform 0.2s ease-in-out, background-color 0.2s;
+}
+
+#floating-email-btn:hover {
+    background-color: var(--hover-bg); /* Darker red on hover */
+    transform: scale(1.1); /* Slightly enlarge on hover */
+}
+
+/* Mobile View Optimization */
+@media (max-width: 768px) {
+    #floating-email-btn {
+        width: 55px;
+        height: 55px;
+        right: 20px;
+        bottom: 20px;
+        font-size: 22px;
+    }
+}
