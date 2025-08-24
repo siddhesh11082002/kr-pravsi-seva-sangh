@@ -198,6 +198,123 @@ main {
     }
 }
 
+/* --- Representatives Section --- */
+.representatives-section {
+    padding: 3rem 0;
+    background-color: #f8f9fa; /* A slightly different background color */
+}
+
+.representatives-section h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+}
+
+.card-container {
+    display: flex;
+    justify-content: center;
+    align-items: stretch; /* Makes cards in the same row equal height */
+    flex-wrap: wrap;
+    gap: 2rem; /* Space between cards */
+}
+
+.representative-card {
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    overflow: hidden; /* Ensures the image respects the border-radius */
+    text-align: center;
+    flex-basis: 280px; /* Sets a base width for each card */
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.representative-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.representative-card img {
+    width: 100%;
+    height: 280px;
+    object-fit: cover; /* Prevents images from stretching */
+}
+
+.card-info {
+    padding: 1.5rem;
+    flex-grow: 1;
+}
+
+.card-name {
+    margin: 0 0 0.5rem 0;
+    font-size: 1.3rem;
+    color: var(--text-dark);
+}
+
+.card-position {
+    margin: 0;
+    color: #777;
+    font-size: 1rem;
+}
+
+
+/* --- PDF List Section --- */
+.documents-section {
+    padding: 3rem 0;
+    text-align: center;
+}
+
+.pdf-intro-text {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 2rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.pdf-list {
+    list-style: none;
+    padding: 0;
+    max-width: 500px; /* Sets a max width for the list */
+    margin: 0 auto; /* Centers the list */
+}
+
+.pdf-list li {
+    margin-bottom: 1rem;
+}
+
+.pdf-list a {
+    display: block;
+    background-color: #f0f0f0;
+    padding: 1rem;
+    border-radius: 5px;
+    text-decoration: none;
+    color: var(--text-dark);
+    font-weight: bold;
+    text-align: left;
+    transition: all 0.3s ease;
+    border-left: 5px solid transparent;
+}
+
+.pdf-list a:hover {
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    transform: translateX(5px);
+    border-left: 5px solid var(--primary-hover);
+}
+
+.pdf-list a .fa-file-pdf {
+    margin-right: 12px;
+    font-size: 1.2rem;
+    color: #D3382D; /* A standard red color for PDFs */
+}
+
+.pdf-list a:hover .fa-file-pdf {
+    color: var(--text-light); /* Icon becomes white on hover */
+} 
+
 /* --- Developer Credit in Footer --- */
 .developer-credit {
     margin-top: 1rem; /* Adds some space above the credit line */
